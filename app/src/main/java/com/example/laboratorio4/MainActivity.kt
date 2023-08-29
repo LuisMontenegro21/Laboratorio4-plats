@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Laboratorio4Theme {
-                // A surface container using the 'background' color from the theme
+                TitleAndPictureScreen()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -37,18 +37,35 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
-fun alignPicture(){
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArragement = Arrangement.Center) {
+fun TitleAndPictureScreen(imageResourceId: Int) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
-            text = "Campus Central",
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
-            fontSize = 30.sp
+            text = "Title Text",
+            fontWeight = FontWeight.Bold,
+            fontSize = MaterialTheme.typography.h4.fontSize,
+            modifier = Modifier.padding(16.dp)
+        )
+
+        Image(
+            painter = painterResource(id = ),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .size(200.dp)
+                .padding(16.dp)
         )
     }
+}
 
+@Preview
+@Composable
+fun PreviewTitleAndPictureScreen() {
+    TitleAndPictureScreen()
 }
 
